@@ -1,0 +1,29 @@
+{
+  "name": "yacht",
+  "version": "1.0.0",
+  "description": "nodejs server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -p . && node build/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonccx/yacht.git"
+  },
+  "author": "Brandon Chen",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/brandonccx/yacht/issues"
+  },
+  "homepage": "https://github.com/brandonccx/yacht#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.40"
+  }
+}
