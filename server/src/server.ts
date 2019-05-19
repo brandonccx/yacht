@@ -1,8 +1,8 @@
 import Koa from 'koa';
-import Router from 'koa-router';
-import sequelize from './db';
-import { User } from './models';
 import bodyParser from 'koa-bodyparser';
+import logger from 'koa-logger';
+import sequelize from './db';
+import { router } from './router';
 
 sequelize
   .sync()
@@ -15,30 +15,12 @@ sequelize
 
 const PORT = 8080;
 const app = new Koa();
-const router = new Router();
 
 app
+  .use(logger())
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods());
-
-// Test with `curl -i http://localhost:8080/user`
-router.get('/user', async ctx => {
-  ctx.body = await User.findAll();
-});
-
-/**
- * Test with:
- * curl -i -X POST \
- *   -H 'Content-Type:application/json' \
- *   -d '{"name": "brandon", "description": "hello"}' \
- *   http://localhost:8080/user
- * 
- */
-router.post('/user', async ctx => {
-  console.log(ctx.request.body);
-  ctx.body = await User.create(ctx.request.body);
-});
 
 app.listen(PORT);
 
