@@ -13,7 +13,7 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-const PORT = 8080;
+const PORT = 9000;
 const app = new Koa();
 
 app
