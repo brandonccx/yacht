@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>test</h1>
+  <script>
+    const opt = {credentials: 'include'};
+    async function login () {
+      await fetch('http://localhost:9000/api/login', opt);
+      const res = await fetch('http://localhost:9000/api/user', opt);
+      const body = await res.text();
+      console.log(body);
+    }
+    login();
+  </script>
+  
+</body>
+</html>
