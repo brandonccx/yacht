@@ -1,11 +1,17 @@
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
+import yargs from 'yargs';
+
 import sequelize from './db';
 import { router } from './router';
 
+const {argv} = yargs.options({
+  init: {type: 'boolean', default: false}
+});
+
 sequelize
-  .sync()
+  .sync({force: argv.init})
   .then(() => {
     console.log('Database connection has been established successfully.');
   })

@@ -1,4 +1,5 @@
-import { Model, STRING, TEXT, INTEGER } from 'sequelize';
+import { INTEGER, Model, STRING, TEXT } from 'sequelize';
+
 import sequelize from '../db';
 
 export class User extends Model {}
