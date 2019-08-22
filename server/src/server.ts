@@ -26,7 +26,12 @@ app
   .use(logger())
   .use(bodyParser())
   .use(router.routes())
-  .use(router.allowedMethods());
+  .use(router.allowedMethods())
+  .use((ctx) => {
+    if (ctx.request.accepts('json')) {
+      ctx.response.type = 'json';
+    }
+  });
 
 app.listen(PORT);
 
