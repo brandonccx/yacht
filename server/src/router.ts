@@ -15,7 +15,7 @@ router.post('/user', async ctx => {
   ctx.body = await User.create(ctx.request.body);
 });
 
-router.get('/api/login', async ctx => {
+router.post('/api/login', async ctx => {
   cors(ctx);
   const {name, pwd} = ctx.request.body;
   if (name && pwd) {
@@ -38,6 +38,16 @@ router.get('/api/login', async ctx => {
       sendError(ctx, ErrType.UserPwdIncorrent, 'user name or password is incorrect');
     }
   }
+});
+
+router.get('/api/logout', async ctx => {
+  cors(ctx);
+  ctx.cookies.set('yacht-login', 'false', {
+    maxAge: 0,
+    domain: 'localhost',
+    httpOnly: false
+  });
+  sendData(ctx, {});
 });
 
 router.get('/api/user', async ctx => {
