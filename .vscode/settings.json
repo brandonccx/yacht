@@ -1,4 +1,7 @@
 {
+  "typescriptHero.imports.organizeOnSave": true,
+  "typescriptHero.imports.multiLineWrapThreshold": 120,
+  "typescript.preferences.quoteStyle": "single",
   "sqltools.connections": [
     {
       "database": "/Users/brandon/work/github/yacht/server/build/yacht.sqlite",
