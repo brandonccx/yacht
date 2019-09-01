@@ -2,6 +2,6 @@
 
 set -xe
 
-node -v
-# cd /data
-# ls -la
+cd /data/server
+
+npm run start

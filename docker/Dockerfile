@@ -22,6 +22,7 @@ RUN \
   rm -rf node-$VERSION-$DISTRO.tar.xz && \
   chmod 755 entrypoint.sh && \
   node -v && \
-  npm -v
+  npm -v && \
+  npm config set registry https://r.cnpmjs.org/
 
 ENTRYPOINT [ "./entrypoint.sh" ]
