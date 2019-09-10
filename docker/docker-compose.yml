@@ -1,0 +1,25 @@
+version: '3'
+services:
+  webapp:
+    build: .
+    image: yacht-webapp
+    container_name: yacht-webapp
+    depends_on:
+      - db
+    ports:
+      - 9000:9000
+    volumes:
+      - ../server:/data/server
+  db:
+    image: postgres:9.6
+    container_name: yacht-db
+    privileged: true
+    environment:
+      - POSTGRES_DB=yacht
+      - POSTGRES_USER=yacht
+      - POSTGRES_PASSWORD=yacht
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - ../server/data:/var/lib/postgresql/data/pgdata

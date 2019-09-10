@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 
-export default new Sequelize({
-  dialect: 'sqlite',
-  storage: `${__dirname}/yacht.sqlite`,
+export default new Sequelize('yacht', 'yacht', 'yacht', {
+  dialect: 'postgres',
+  host: 'db'
 });

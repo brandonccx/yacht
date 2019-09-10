@@ -13,10 +13,10 @@ const {argv} = yargs.options({
 sequelize
   .sync({force: argv.init})
   .then(() => {
-    console.log('Database connection has been established successfully.');
+    console.log('database connection has been established successfully.');
   })
   .catch((err: Error) => {
-    console.error('Unable to connect to the database:', err);
+    console.error('unable to connect to the database:', err);
   });
 
 const PORT = 9000;

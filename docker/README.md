@@ -3,12 +3,15 @@
 Assuming the node server has been built
 
 1. download https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz to current directory, don't rename the file
-2. build docker image, run `docker build -t yacht .`
-3. run docker container, execute `./run.sh`
-   if you are in windows, can manually run `docker run` command in `run.sh`
+2. build docker image, run `docker-compose build`
+3. run docker containers, run `docker-compose up -d`
+   if you are in windows, modify the volumes url to windows mode in `docker-compose.yml`
 
 # Debug
 
-`docker logs -f yacht-server` show and follow the server log
-`docker stop/start/restart yacht-server` stop/start/restart the container
-`docker rm -f yacht-server` remove the container
+`docker-compose stop/start` stop/start all containers of yacht
+`docker-compose up -d --force-recreate` force to recreate the containers
+
+`docker logs -f yacht-webapp` show and follow the server log
+`docker stop/start/restart yacht-webapp` stop/start/restart the container
+
