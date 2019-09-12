@@ -22,4 +22,6 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ../server/data:/var/lib/postgresql/data/pgdata
+      - yacht_pg_db:/var/lib/postgresql/data/pgdata
+volumes:
+  yacht_pg_db:
