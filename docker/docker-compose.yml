@@ -25,3 +25,8 @@ services:
       - yacht_pg_db:/var/lib/postgresql/data/pgdata
 volumes:
   yacht_pg_db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${YACHT_ROOT}/server/data
